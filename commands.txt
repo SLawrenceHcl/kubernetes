@@ -1,0 +1,9 @@
+eksctl create nodegroup --region=ca-central-1 --cluster=stephen-eureka-cluster --name=stephen-ng1 --node-type=t2.micro --nodes=4 --nodes-min=1 --nodes-max=4
+
+eksctl get nodegroup --region=ca-central-1 --cluster=stephen-eureka-cluster --name=stephen-ng1 
+
+eksctl delete nodegroup --region=ca-central-1 --cluster=stephen-ingress --name=stephen-ng1
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/cloud/deploy.yaml
+
+

@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name:rs-name
+spec:
+  replicas: 2
+  minReadySeconds:10
+  selector:
+    matchLabels:
+      metadata.Name: rs-name # use target resources metadata to select
+    matchExpression: 
+      {key:version,operator: In, values:[v1,v2,v3]}
+  template:
+    metadata:
+      name:pod-name
+    spec:

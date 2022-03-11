@@ -1,0 +1,29 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadata: 
+  name: minimal-ingress 
+  annotations: 
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec: 
+  ingressClassName: nginx 
+  rules: 
+  - host: one.test.com
+    http:
+      paths: 
+      - path: / 
+        pathType: Prefix 
+        backend: 
+          service: 
+            name: recommend-service-svc 
+            port: 
+              number: 8095
+  - host: two.test.com
+    http:
+      paths:
+      - path: /t2
+        pathType: Prefix
+        backend:
+          service:
+            name: t2
+            port:
+              number: 82

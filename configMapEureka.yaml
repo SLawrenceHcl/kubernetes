@@ -1,0 +1,7 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata: creationTimestamp: null 
+name: ConfigEurekaConnection 
+data: 
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://35.182.129.253:32363/eureka/
+  
